@@ -6,7 +6,10 @@
         <?php print $linked_logo_img; ?>
       </div>
       <div class="comptroller">
-        <a class="logo" href="http://www.comptroller.nyc.gov/"><img src="<?php print base_path(); ?>sites/all/themes/checkbook/images/nyc-comptroller.png" alt="New York City Comptroller - John C. Liu" /></a>
+        <a class="logo" href="http://controller.lacity.org/">
+          <?php // TODO: remove css and replace with image for Los Angeles controller ?>
+          <img src="<?php print base_path(); ?>sites/all/themes/checkbook/images/nyc-comptroller.png" alt="New York City Comptroller - John C. Liu" style="display: none"/>
+        </a>
       </div>
       <?php endif; ?>
       <?php if ($site_name || $site_slogan): ?>
