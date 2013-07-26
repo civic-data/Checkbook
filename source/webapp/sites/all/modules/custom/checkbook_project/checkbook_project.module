@@ -20,6 +20,27 @@
 
 
 
+function checkbook_project_variable_info($options) {
+
+  // This is the very minimum we need, some descriptive name.
+
+  $variable['checkbook_project_site_name'] = array(
+
+    'title' => t('City/State Name', array(), $options),
+    'description' => t('Enter your city/state'),
+    'type' => 'string',
+  );
+  
+  $variable['checkbook_project_site_short_name'] = array(
+  
+      'title' => t('City/State Short Name', array(), $options),
+      'description' => t('Enter your city/state short name'),
+      'type' => 'string',
+  );
+  return $variable;
+  
+}
+
 
 /**
  * Drupal Hook to alter menu items generated to add specific   ...

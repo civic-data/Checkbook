@@ -18,7 +18,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
  
-$title = 'New York City';
+$title = variable_get("checkbook_project_site_name","New York City");
 
 $agency = _getRequestParamValue('agency');
 $expcategory = _getRequestParamValue('expcategory');

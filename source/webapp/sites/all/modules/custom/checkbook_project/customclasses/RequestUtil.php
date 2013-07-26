@@ -204,7 +204,7 @@ class RequestUtil{
         $title = _checkbook_project_get_name_for_argument("agency_id",RequestUtil::getRequestKeyValueFromURL("agency",current_path())) . ' Payroll' ;
       }
       elseif(preg_match('/^payroll/',current_path()) && !preg_match('/transactions/',current_path())){
-        $title = 'New York City Payroll' ;
+        $title = variable_get("checkbook_project_site_name","New York City") . " Payroll" ;
       }     
       else{
         GLOBAL $checkbook_breadcrumb_title;

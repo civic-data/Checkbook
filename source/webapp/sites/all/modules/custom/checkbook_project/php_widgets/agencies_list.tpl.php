@@ -84,7 +84,7 @@ $agency_list_other =
     <div class='listContainer1' id='otherAgenciesList'>
         <div class='agency-slide'>
           <ul class='listCol'>
-            <li><a href='/".RequestUtil::getEDCURL(). "'>New York City Economic Development Corporation</a></li>
+            <li><a href='/".RequestUtil::getEDCURL(). "'>". variable_get("checkbook_project_site_name","New York City").  "Economic Development Corporation</a></li>
           </ul>
         </div>
     </div>        

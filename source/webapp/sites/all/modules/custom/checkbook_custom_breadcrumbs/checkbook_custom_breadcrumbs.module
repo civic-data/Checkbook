@@ -78,7 +78,7 @@ function _set_revenue_breadcrumb_title_drilldown(){
 function _get_contracts_breadcrumb_title_drilldown(){
 
     $lastReqParam = _getLastRequestParamValue();
-    $title = "New York City";
+    $title = variable_get("checkbook_project_site_name","New York City");
 
     foreach($lastReqParam as $key => $value){
         switch($key){
@@ -112,7 +112,7 @@ function _get_contracts_breadcrumb_title_drilldown(){
 function _get_spending_breadcrumb_title_drilldown(){
 
   $lastReqParam = _getLastRequestParamValue();
-  $title = "New York City";
+  $title = variable_get("checkbook_project_site_name","New York City");
 
   foreach($lastReqParam as $key => $value){
     switch($key){
@@ -139,7 +139,7 @@ function _get_budget_breadcrumb_title_drilldown(){
        $title = null;
     }else{
         $lastReqParam = _getLastRequestParamValue();
-        $title = "New York City";
+        $title = variable_get("checkbook_project_site_name","New York City");
 
         foreach($lastReqParam as $key => $value){
         switch($key){
@@ -172,7 +172,7 @@ function _get_revenue_breadcrumb_title_drilldown(){
        $title = null;
     }else{
         $lastReqParam = _getLastRequestParamValue();
-        $title = "New York City";
+        $title = variable_get("checkbook_project_site_name","New York City");
 
         foreach($lastReqParam as $key => $value){
         switch($key){
@@ -206,7 +206,7 @@ function _set_pending_contracts_breadcrumb_title_drilldown(){
 function _get_pending_contracts_breadcrumb_title_drilldown(){
 
     $lastReqParam = _getLastRequestParamValue();
-    $title = "New York City";
+    $title = variable_get("checkbook_project_site_name","New York City");
 
     foreach($lastReqParam as $key => $value){
         switch($key){
@@ -259,7 +259,7 @@ function _set_contracts_breadcrumb_title(){
   $breadcrumb = array();
   $breadcrumb[] = l('Home', '<front>');
   $breadcrumb[] = l('NYC Contracts', 'contracts/year/' . $year_id . '/yeartype/' . $year_type);
-  $title = "New York City";
+  $title = variable_get("checkbook_project_site_name","New York City");
   if(isset($agency_id)){
     $breadcrumb[] = l($values['agency_id'] , 'contracts/agency/' .$agency_id .  '/year/' . $year_id . '/yeartype/' . $year_type);
     $title = $values['agency_id'];
@@ -335,7 +335,7 @@ function _set_pending_contracts_breadcrumb_title(){
     $breadcrumb = array();
     $breadcrumb[] = l('Home', '<front>');
     $breadcrumb[] = l('NYC Contracts', 'contracts/year/' . $pending_contracts_year_id . '/yeartype/' . $pending_contracts_year_type);
-    $title = "New York City";
+    $title = variable_get("checkbook_project_site_name","New York City");
     if(isset($pending_contracts_agency_id)){
       $breadcrumb[] = l($values['pending_contracts_agency_id'] , 'contracts/agency/' .$pending_contracts_agency_id .  '/year/' . $pending_contracts_year_id . '/yeartype/' . $pending_contracts_year_type);
       $title = $values['pending_contracts_agency_id'];

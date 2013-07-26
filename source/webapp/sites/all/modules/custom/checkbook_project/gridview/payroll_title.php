@@ -21,7 +21,7 @@
 
 $refURL =$_GET['refURL'];
 
-$title = "New York City";
+$title = variable_get("checkbook_project_site_name","New York City");
 
 $agencyId = _getRequestParamValue('agency');
 if(isset($agencyId)){
