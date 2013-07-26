@@ -258,7 +258,7 @@ function _set_contracts_breadcrumb_title(){
 
   $breadcrumb = array();
   $breadcrumb[] = l('Home', '<front>');
-  $breadcrumb[] = l('NYC Contracts', 'contracts/year/' . $year_id . '/yeartype/' . $year_type);
+  $breadcrumb[] = l(variable_get("checkbook_project_site_short_name","NYC") . ' Contracts', 'contracts/year/' . $year_id . '/yeartype/' . $year_type);
   $title = variable_get("checkbook_project_site_name","New York City");
   if(isset($agency_id)){
     $breadcrumb[] = l($values['agency_id'] , 'contracts/agency/' .$agency_id .  '/year/' . $year_id . '/yeartype/' . $year_type);
@@ -334,7 +334,7 @@ function _set_pending_contracts_breadcrumb_title(){
 
     $breadcrumb = array();
     $breadcrumb[] = l('Home', '<front>');
-    $breadcrumb[] = l('NYC Contracts', 'contracts/year/' . $pending_contracts_year_id . '/yeartype/' . $pending_contracts_year_type);
+    $breadcrumb[] = l(variable_get("checkbook_project_site_short_name","NYC") . ' Contracts', 'contracts/year/' . $pending_contracts_year_id . '/yeartype/' . $pending_contracts_year_type);
     $title = variable_get("checkbook_project_site_name","New York City");
     if(isset($pending_contracts_agency_id)){
       $breadcrumb[] = l($values['pending_contracts_agency_id'] , 'contracts/agency/' .$pending_contracts_agency_id .  '/year/' . $pending_contracts_year_id . '/yeartype/' . $pending_contracts_year_type);

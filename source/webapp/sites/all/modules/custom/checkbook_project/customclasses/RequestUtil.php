@@ -181,7 +181,7 @@ class RequestUtil{
         $title = NodeSummaryUtil::getInitNodeSummaryTitle($smnid)  ;        
       }
       else if(isset($bottomURL) && preg_match('/payroll_by_month_nyc_transactions/',$bottomURL)){        
-        $customTitle = "NYC Payroll Transactions";
+        $customTitle = variable_get("checkbook_project_site_short_name","NYC") . " Payroll Transactions";
         $monthDetails = CheckbookDateUtil::getMonthDetails(RequestUtil::getRequestKeyValueFromURL("month",$bottomURL));
         if(isset($monthDetails)){
           $customTitle .=  (" in the Month of ". $monthDetails[0]['month_name']) ;

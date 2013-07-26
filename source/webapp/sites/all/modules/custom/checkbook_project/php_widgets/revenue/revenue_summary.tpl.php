@@ -28,7 +28,7 @@ $fundsrcIndex = array_search("fundsrccode",$pathParams);
 $agencyIndex = array_search("agency",$pathParams);
 
 if(!$revcatIndex && !$fundsrcIndex && !$agencyIndex){
-   $output .= '<h2>'. _getYearValueFromID($pathParams[$yrIndex+1]) .' NYC Revenue</h2>';
+   $output .= '<h2>'. _getYearValueFromID($pathParams[$yrIndex+1]) .variable_get("checkbook_project_site_short_name","NYC") . ' Revenue</h2>';
 }
 
 foreach($node->data as $key=>$value){

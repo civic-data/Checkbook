@@ -139,7 +139,7 @@ function checkbook_datafeeds_tracking_form_submit($form, &$form_state) {
  */
 function checkbook_datafeeds_tracking_results_page() {
   $page['instructions'] = array(
-    '#markup' => t('<div class="form-instructions"><p><h2>Select the Data Feeds</h2></p><p>Use this tool to design your own snapshots of NYC Financial Data</p><p>You can then save the resulting dataset as a file, or publish a dynamically updating XML feed of the data.  This feed will enable you to build your own web applications and widgets for your website.</p></div>'),
+    '#markup' => t('<div class="form-instructions"><p><h2>Select the Data Feeds</h2></p><p>Use this tool to design your own snapshots of ' . variable_get("checkbook_project_site_short_name","NYC") . ' Financial Data</p><p>You can then save the resulting dataset as a file, or publish a dynamically updating XML feed of the data.  This feed will enable you to build your own web applications and widgets for your website.</p></div>'),
     '#prefix' => '<div class="data-feeds-sidebar">',
   );
   $page['trackstatus'] = array(
@@ -319,7 +319,7 @@ function theme_user_criteria($variables) {
  */
 function checkbook_datafeeds_data_feeds_page() {
   $page['instructions'] = array(
-    '#markup' => t('<div class="form-instructions"><h2>Select the Data Feeds</h2><p>Use this tool to design your own snapshots of NYC Financial Data</p><p>You can then save the resulting dataset as a file, or publish a dynamically updating XML feed of the data.  This feed will enable you to build your own web applications and widgets for your website.</p></div>'),
+    '#markup' => t('<div class="form-instructions"><h2>Select the Data Feeds</h2><p>Use this tool to design your own snapshots of '. variable_get("checkbook_project_site_short_name","NYC") . ' Financial Data</p><p>You can then save the resulting dataset as a file, or publish a dynamically updating XML feed of the data.  This feed will enable you to build your own web applications and widgets for your website.</p></div>'),
     '#prefix' => '<div class="data-feeds-sidebar">',
   );
   $page['trackstatus'] = array(
