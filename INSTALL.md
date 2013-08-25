@@ -391,7 +391,7 @@ Steps to install:
             //Export data outputDirectory
             $conf['check_book']['export_data_dir'] = 'exportdata';
 
-     Make sure to create the directory `sites/default/files/refdata`
+     Make sure to create the directory `sites/default/files/exportdata`
      too, and ensure it's writeable by `www-data`.
    - This setting is used to limit the number of records for the export file:
 
