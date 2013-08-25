@@ -26,14 +26,9 @@ pre-packaged for direct installation by copying, as described below.
  instructions.  It's really about setting the postgres DB user's
  password, and therefore should be documented in INSTALL.md.*
 
-4. Update the Solr database settings:
+4. Set the PostgreSQL authn connection configuration:
 
- Update `/opt/solr-4.1.0/indexes/solr/collection1/conf/db-config.xml`
- with the correct username, password and db name for the PostgreSQL
- database.  By default, they are "`postgres`", "`postgres`" and
- "`checkbook`" respectively.
-
- Next, open up the PostgreSQL configuration file (a file somewhere
+ Open up the PostgreSQL configuration file (a file somewhere
  like `/etc/postgresql/9.1/main/pg_hba.conf`) and change this line
 
           `local  all        postgres          peer`
@@ -61,7 +56,9 @@ pre-packaged for direct installation by copying, as described below.
           Type "help" for help.
           checkbook=# \q  (to quit)
 
- Next edit `/opt/solr-4.1.0/indexes/solr/collection1/conf/db-config.xml`
+5. Tell Solr how to connect to PostgreSQL:
+
+ Edit `/opt/solr-4.1.0/indexes/solr/collection1/conf/db-config.xml`
  to insert the correct database details.  There is no line break or
  backslash here; the backslash just indicates line continuation:
           
@@ -73,7 +70,7 @@ pre-packaged for direct installation by copying, as described below.
  "postgres", for testing.  However, in a production environment those
  would be different, and this is where you would need to set them.*
 
-5. Start Solr inside Tomcat:
+6. Start Solr inside Tomcat:
 
  To run Tomcat, you'll need a Java runtime environment.  If your
  system doesn't already have one, you can install it like this under
@@ -92,7 +89,7 @@ pre-packaged for direct installation by copying, as described below.
  Solr is now running.  For troubleshooting errors, see the detailed
  logs in `/opt/apache-tomcat-6.0.35/logs/`.
 
-6. Start Solr indexing.
+7. Start Solr indexing.
 
  Visit this url in a browser start indexing:
  <http://localhost:8080/solr-checkbook/dataimport?command=full-import&clean=true&jobID=0>
