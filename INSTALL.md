@@ -211,11 +211,13 @@ Steps to install:
         includes/     INSTALL.sqlite.txt modules/        sites/     xmlrpc.php
         $ 
 
-    (This assumes that directory `/var/www/` exists and is owned by user
-    `www-data` and group `www-data`.  If that's not the case, you may
-    need to properly create and set permissions on the destination.  On
-    Ubuntu 12.04, `sudo chown -R www-data.www-data /var/www` would be one
-    way to do that.)
+    (If the `/var/www/html` directory is already there, then you'll
+    need to adjust these instructions in the appropriate way.  Also,
+    all of this assumes that directory `/var/www/` already exists and
+    is owned by user `www-data` and group `www-data`.  If that's not
+    the case, you may need to properly create and set permissions
+    there too. `sudo chown -R www-data.www-data /var/www` would be one
+    way to do that on Ubuntu 12.04.)
 
     Finally, copy the `default.settings.php` file to
     `settings.php`. There is no actual line break below nor backslash --
@@ -231,7 +233,7 @@ Steps to install:
     **Highcharts:**
     - Download version 3.0.1 from <http://www.highcharts.com/products/highcharts>:
 
-            $ wget http://www.highcharts.com/downloads/zips/Highcharts-3.0.1.zip
+            $ wget http://code.highcharts.com/zips/Highcharts-3.0.1.zip
     - Unpack it into the appropriate place in the web application:
 
             $ mkdir -p /var/www/html/sites/all/modules/custom/widget_framework/widget_highcharts/highcharts/
@@ -246,7 +248,7 @@ Steps to install:
     **Highstock:**
     - Download version 1.2.4 from <http://www.highcharts.com/products/highstock>:
 
-            $ wget http://www.highcharts.com/downloads/zips/Highstock-1.2.4.zip
+            $ wget http://code.highcharts.com/zips/Highstock-1.2.4.zip
     - Unpack it:
 
             $ mkdir -p /var/www/html/sites/all/modules/custom/widget_framework/widget_highcharts/highstock/
@@ -278,13 +280,19 @@ Steps to install:
 
     *Notes:*
 
+    On some operating systems (e.g., CentOS 6.4), the MySQL daemon may
+    not have been invoked at system startup, and furthermore the MySQL
+    root password may not have been set yet.  To deal with these
+    situations respectively, do `sudo service mysqld start` and
+    `mysqladmin -u root password "some_password"`.
+
     The path `data/checkbook_drupal.sql` is relative to the top of this
     source tree; you may need to give an absolute path or a different
     relative path when you issue the MySQL `source` command above,
     depending on where you invoked mysql.
 
-    In this demo, we are givig the MySQL user "checkbook@localhost" the
-    password 'checkbook', to match the default setting in
+    In this demo, we are giving the MySQL user "checkbook@localhost"
+    the password 'checkbook', to match the default setting in
     `/var/www/html/sites/default/settings.php`.  For a production
     installation, you would want to use a better password of course.
 
