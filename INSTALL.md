@@ -115,7 +115,8 @@ Steps to install:
 
 2.  Ensure you have the necessary dependencies installed.
 
-    On Ubuntu 12.04 Server, that looks like this:
+    On Ubuntu 12.04 Server, that looks like this (Debian GNU/Linux
+    should be pretty similar):
 
         $ sudo apt-get update
         $ sudo apt-get install php5
@@ -133,9 +134,46 @@ Steps to install:
         $ sudo apt-get install openjdk-6-jre-headless
         $ sudo apt-get install zip
 
-    Debian GNU/Linux would be pretty similar to the above.  For other
-    operating systems, you'll have to translate the above to the native
-    package management system.
+    On CentOS 6.4 (Red Hat RHEL should similar), it's this:
+
+        $ sudo yum install php.x86_64
+        $ sudo yum install php-gd.x86_64
+        $ sudo yum install php-intl.x86_64
+        $ sudo yum install php-mysql.x86_64
+        $ sudo yum install php-pgsql.x86_64
+        $ sudo yum install mysql-server.x86_64
+        $ sudo yum install git.x86_64
+        $ sudo yum install httpd.x86_64
+        $ sudo yum install java-1.6.0-openjdk.x86_64
+        $ sudo yum install zip.x86_64
+
+        # For drush (the Drupal Shell), we have to install it via the
+        # Pear PHP package management system, because drush apparently
+        # isn't natively packaged in CentOS 6.4 yet.  So:
+
+        $ sudo yum -y install php-pear
+        $ sudo pear upgrade
+        $ sudo pear channel-discover pear.drush.org
+        $ sudo pear install drush/drush
+
+        # For PostgreSQL, we want version 9.x, but base CentOS 6.4
+        # only packages PostgreSQL 8.x.  So first download the RPM
+        # file from the PostgreSQL Yum/RPM Building Project at
+        # http://yum.postgresql.org/repopackages.php (look for the
+        # "CentOS 6 - x86_64" link, which as of this writing points to
+        # http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm).
+
+        $ sudo rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
+
+        # That installed the repos RPM -- in other words, it made the
+        # yum/rpm system aware of the PostgreSQL package repository
+        # from which you can now install the actual packages.  Do so:
+
+        $ sudo yum install postgresql93-server
+        $ sudo yum install postgresql93-contrib
+
+    For other operating systems, you'll have to translate the above to
+    the appropriate package management system.
 
     *Note: the process of installing Apache Solr will be described
     later, as Checkbook currently installs Solr in an unusual way.*
