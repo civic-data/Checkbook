@@ -17,9 +17,10 @@ if (typeof Drupal != "undefined") {
 		                	var curl = prepareTableListFilterUrl();		                			    	          
 		    	            var nid = $(this.element).attr("nodeid");
 		    	            var filter_column = jQuery("#node-widget-" + nid).find('input.autocomplete').attr('autocomplete_param_name');
-		    	            
-		    	            
-		    	            curl = '/faceted-search/ajax/autocomplete'  + curl + "/" + filter_column + "/" + encodeURIComponent(request.term);
+		    	            var request_term = request.term;
+                            request_term = request_term.replace('/','__')
+
+		    	            curl = '/faceted-search/ajax/autocomplete'  + curl + "/" + filter_column + "/" + encodeURIComponent(request_term);
 		    	            var p = new RegExp('node\/[0-9]*');
 		    	            curl = curl.replace(p,'node/' + nid );
 		                	jQuery.ajax({
