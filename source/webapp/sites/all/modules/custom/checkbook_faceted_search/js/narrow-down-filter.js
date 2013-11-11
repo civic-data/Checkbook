@@ -62,6 +62,7 @@ if (typeof Drupal != "undefined") {
 }(jQuery));
 
 function reloadSidebar(curl) {
+
     var nodes = jQuery('.grid-3 .node');
     nodes.each(function(i, v){
         var progress = jQuery(this).find('.progress');
