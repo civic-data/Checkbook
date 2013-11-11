@@ -18,7 +18,7 @@ if (typeof Drupal != "undefined") {
 		    	            var nid = $(this.element).attr("nodeid");
 		    	            var filter_column = jQuery("#node-widget-" + nid).find('input.autocomplete').attr('autocomplete_param_name');
 		    	            var request_term = request.term;
-                            request_term = request_term.replace('/','__')
+                            request_term = replaceAllOccurrences('/','__',request_term);
 
 		    	            curl = '/faceted-search/ajax/autocomplete'  + curl + "/" + filter_column + "/" + encodeURIComponent(request_term);
 		    	            var p = new RegExp('node\/[0-9]*');
