@@ -141,7 +141,7 @@ function _checkbook_faceted_search_update_data($node){
           $output['checked'][] = array($checked_items[0][str_replace('.','_',$node->widgetConfig->columns[0])]
                                   ,$checked_items[0][str_replace('.','_',$node->widgetConfig->columns[0])]
                                   ,$checked_items[0][str_replace('.','_',$node->widgetConfig->columns[1])]);
-        }else{        
+        }else{
           $output['checked'][] = array($checked_items[0][str_replace('.','_',$node->widgetConfig->columns[0])]
                                   ,$checked_items[0][str_replace('.','_',$node->widgetConfig->columns[1])]
                                   ,$checked_items[0][str_replace('.','_',$node->widgetConfig->columns[2])]);
