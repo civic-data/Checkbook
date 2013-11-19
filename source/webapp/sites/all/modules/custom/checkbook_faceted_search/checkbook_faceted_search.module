@@ -274,8 +274,7 @@ function checkbook_faceted_search_preprocess_individual_filter(&$variables){
   }else{
     $variables['hide_filter'] = "";
   }
-  
-  
+
 }
 
 function checkbook_faceted_search_preprocess_pagination(&$variables){
