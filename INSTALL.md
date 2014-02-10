@@ -542,17 +542,24 @@ problem, please raise it in one of the feedback forums (e.g., as a
 GitHub issue or as a post in the discussion group -- see README.md),
 and once we've figured out the solution we'll list it here too.
 
-  * How to install with 2 network interfaces (at least on Centos 6.4)
-    
-    In
-    https://github.com/NYCComptroller/Checkbook/issues/26#issuecomment-34296699,
-    user @sapariduo described some extra things he needed to do to set
-    up Checkbook on a server with two virtual network interfaces: 1
-    interface with NAT configuration (with DHCP enabled) to
-    communicate with host machine, and 1 interface with Host Only
-    Configuration (without DHCP) with a static IP address.
+  * Installation on a Virtual Machine.
 
-    In addition to the usual setup steps, @sapariduo had to:
+    https://github.com/NYCComptroller/Checkbook/issues/26#issuecomment-34296699
+    describes how user @sapariduo installed CheckbookNYC on a virtual
+    machine, with the Host machine running Windows 7 and the Virtual
+    Machine running Centos 6.4.
+
+    To do this, he set up 2 virtual networks.  1 (NAT) used DHCP from
+    the host machine, therefore having the same subnet address as the
+    Host.  The other virtual network used a static IP address ("Host
+    Only Configuration"), for the Checkbook server on CentOS 6.4.  The
+    objective of this configuration was to allow the CentOS machine to
+    be able to connect with the external network, so that a very
+    minimal CentOS installation could be used without any need for any
+    desktop features there, and allowing the Windows browser to
+    connect to the Checkbook application on the CentOS VM.
+
+    Here are some extra things he needed to do to make this work:
 
     - Set up or verify hostname of the server on
       `/etc/sysconfig/network` and put the static IP address and
