@@ -7,6 +7,7 @@ Table of contents:
  * Requirements
  * Optional configuration for scalability and performance
  * Installation
+ * Troubleshooting
  
 Introduction
 ------------
@@ -141,6 +142,7 @@ Steps to install:
         $ sudo yum install php-intl.x86_64
         $ sudo yum install php-mysql.x86_64
         $ sudo yum install php-pgsql.x86_64
+        $ sudo yum install php-xml
         $ sudo yum install mysql-server.x86_64
         $ sudo yum install git.x86_64
         $ sudo yum install httpd.x86_64
@@ -530,3 +532,55 @@ Steps to install:
 
  * Click on export in advances search results page to verfiy that
     export is working.
+
+Troubleshooting
+---------------
+
+We're slowly collecting troubleshooting tips based on people's
+installation experiences in the real world.  If you encounter a new
+problem, please raise it in one of the feedback forums (e.g., as a
+GitHub issue or as a post in the discussion group -- see README.md),
+and once we've figured out the solution we'll list it here too.
+
+  * How to install with 2 network interfaces (at least on Centos 6.4)
+    
+    In
+    https://github.com/NYCComptroller/Checkbook/issues/26#issuecomment-34296699,
+    user @sapariduo described some extra things he needed to do to set
+    up Checkbook on a server with two virtual network interfaces: 1
+    interface with NAT configuration (with DHCP enabled) to
+    communicate with host machine, and 1 interface with Host Only
+    Configuration (without DHCP) with a static IP address.
+
+    In addition to the usual setup steps, @sapariduo had to:
+
+    - Set up or verify hostname of the server on
+      `/etc/sysconfig/network` and put the static IP address and
+      hostname on `/etc/hosts`.
+
+    - In `/etc/httpd/conf/httpd.conf`:
+
+      1. Find entry "ServerName", untag and set parameter with
+         yourdomain:80 or yourIP:80
+
+      2. Find entry "NameVirtualHost", untag and set parameter with *:80
+
+      3. Set VirtualHost Configuration and use your domain or your IP
+         on ServerName element
+
+    - Configuration needed for PostgreSQL to make Solr able to connect:
+
+      1. Change parameter on `/var/lib/pgsql/9.3./data/pg_hba.conf`:
+         "local all all ident" --> "local all all trust"
+
+      Then monitor whether Solr is able to connect with Postgres, from
+      `/opt/apache-tomcat-6.0.35/logs/catalina.out`.  If there is still
+      an error in the JDBC Postgres connection, try changeing this
+      parameter too:
+      "host all all 127.0.0.1/32 ident" --> "host all all 127.0.0.1/32 trust"
+
+    Then restart HTTPD and Tomcat:
+
+    `service httpd restart` 
+
+    `./bin/shutdown.sh` (from within the apache-tomcat directory)
