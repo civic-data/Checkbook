@@ -221,6 +221,11 @@ Steps to install:
     there too. `sudo chown -R www-data.www-data /var/www` would be one
     way to do that on Ubuntu 12.04.)
 
+    Make sure the `sites/default/files/` directory has read, write,
+    *and* execute permissions for the web server user:
+
+        $ chmod ug+rwx /var/www/html/sites/default/files
+
     Finally, copy the `default.settings.php` file to
     `settings.php`. There is no actual line break below nor backslash --
     the backslash just indicates that the line continues:
