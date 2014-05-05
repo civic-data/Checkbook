@@ -55,4 +55,3 @@ you to ask questions in the Checkbook NYC technical discussion forum:
 You can post via web or email; either way, you don't need to be
 subscribed to post.
 
-For any questions or concerns, please feel free to contact REI Systems – the company who built and implemented Checkbook NYC. Email Steve Lancaster directly at <mailto:slancaster@reisystems.com> or call 571.262.5250.
